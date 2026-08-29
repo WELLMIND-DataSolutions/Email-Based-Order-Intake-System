@@ -1,4 +1,5 @@
 # Email Based Order Intake System
+<img src="./workflow.png" alt="Workflow" width="100%"/>
 
 An intelligent email automation system that receives customer orders through email, extracts order details, validates the information, and creates structured orders automatically.
 </p>
