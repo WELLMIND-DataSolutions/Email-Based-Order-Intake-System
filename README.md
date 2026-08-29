@@ -1,12 +1,5 @@
 # Email Based Order Intake System
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Processing%20Method-Email%20Automation-12B886?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Training%20Required-None-4C6EF5?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Status-In%20Development-F59E0B?style=for-the-badge"/>
-</p>
-
-<p align="center">
 An intelligent email automation system that receives customer orders through email, extracts order details, validates the information, and creates structured orders automatically.
 </p>
 
@@ -58,13 +51,7 @@ This allows businesses to convert unstructured email orders into organized and a
 * **Cost Effective** — Reduces operational workload and improves employee productivity
 * **Better Traceability** — Maintains logs of processed emails and created orders
 
----
 
-## System Workflow
-
-<p align="center">
-  <img src="./Assets/workflow.png" alt="Email Based Order Intake System Workflow" width="100%"/>
-</p>
 
 ### Workflow Steps
 
