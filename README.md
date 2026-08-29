@@ -1,170 +1,150 @@
-# Email-Based Order Intake System
+# Email Based Order Intake System
 
 <p align="center">
-  An automated pipeline that reads incoming customer order emails and converts them into clean, structured, actionable order records — removing manual data entry and reducing order-processing errors.
+  <img src="https://img.shields.io/badge/Processing%20Method-Email%20Automation-12B886?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Training%20Required-None-4C6EF5?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Status-In%20Development-F59E0B?style=for-the-badge"/>
 </p>
 
 <p align="center">
-  <b>🚧 Project Status: In Development</b>
+An intelligent email automation system that receives customer orders through email, extracts order details, validates the information, and creates structured orders automatically.
 </p>
 
 ---
 
-## What This Project Does
+## Overview
 
-Businesses that receive orders via email lose time and accuracy to manual entry — orders get missed, mistyped, or delayed when staff have to read and re-key every message by hand.
+Businesses often receive customer orders through emails containing order information in different formats. Manually reading these emails, identifying customer and product details, and entering them into an order management system is time consuming and can lead to data entry errors.
 
-This system monitors an inbox, parses incoming order emails (structured or free-text), extracts key order details, and outputs clean, structured records ready for downstream use — with low-confidence or ambiguous emails flagged for human review.
+The **Email Based Order Intake System** automates this complete process. It monitors a designated email inbox, retrieves incoming order emails, extracts important information from the email body and attachments, validates the extracted data, and creates a structured order in the target system or database.
 
-**Key capabilities:**
-
-- Connects to an email inbox (IMAP / Gmail API / Outlook API) and monitors for new order emails
-- Parses email body and attachments to extract order fields (product, quantity, customer, delivery info, etc.)
-- Uses NLP and rule-based extraction to handle varied, unstructured email formats
-- Validates extracted data and flags incomplete or low-confidence orders for manual review
-- Exports structured orders to CSV / database / order-management system
-- Sends automatic acknowledgement or error-notification emails back to the sender
+This allows businesses to convert unstructured email orders into organized and actionable order records with minimal manual intervention.
 
 ---
 
-## Why This Is Useful
+## Aim
 
-- **Order/Sales teams** get structured order data automatically instead of manually reading every email
-- **Operations** reduce data-entry errors and processing delays
-- **Businesses** get a foundation that scales to high email volumes without adding headcount
+* Automate the process of receiving and processing orders through email
+* Extract customer, product, quantity, pricing, and delivery information automatically
+* Reduce manual data entry and human errors
+* Validate extracted information before creating an order
+* Handle different email formats and attached order documents
+* Provide notifications when orders are successfully processed or require manual review
+* Maintain processing logs for traceability and auditing
+
+---
+
+## Key Features
+
+* **Email Monitoring** — Continuously monitors a configured inbox for new customer orders
+* **Email Retrieval** — Fetches incoming emails and their attachments automatically
+* **Order Data Extraction** — Extracts important order information from email content and documents
+* **Data Validation** — Checks mandatory fields, formats, quantities, and business rules
+* **Automated Order Creation** — Converts validated information into structured order records
+* **Error Handling** — Sends invalid or incomplete orders for manual review
+* **Notifications** — Provides processing status and confirmation notifications
+* **Audit Logging** — Records processed emails, extracted information, errors, and order status
+
+---
+
+## Benefits
+
+* **Reduces Manual Effort** — Eliminates repetitive reading and data entry from order emails
+* **Improves Accuracy** — Reduces human mistakes when transferring order information
+* **Faster Order Processing** — Processes incoming orders much faster than manual workflows
+* **Handles Unstructured Emails** — Can extract information even when customers use different email formats
+* **Improves Customer Experience** — Enables faster order confirmation and processing
+* **Scalable** — Can process a large number of incoming order emails consistently
+* **Cost Effective** — Reduces operational workload and improves employee productivity
+* **Better Traceability** — Maintains logs of processed emails and created orders
 
 ---
 
 ## System Workflow
 
-```
-Incoming Email → Email Fetcher → Parser / NLP Extraction → Validation
-     → Structured Order Output → Auto-Reply / Flag for Review → Order Storage
-```
+<p align="center">
+  <img src="./Assets/workflow.png" alt="Email Based Order Intake System Workflow" width="100%"/>
+</p>
+
+### Workflow Steps
+
+**1. Email Received**
+A customer sends an order to the designated business email address.
+
+**2. Email Fetching**
+The system connects to the configured mailbox and retrieves new emails and attachments.
+
+**3. Data Extraction**
+The system analyzes the email body and attached documents to identify relevant order information such as customer details, products, quantities, prices, and delivery information.
+
+**4. Data Validation**
+The extracted information is checked for completeness, correct formats, and required business rules.
+
+**5. Order Validation Decision**
+
+* **Valid Order:** The system proceeds with automated order creation.
+* **Invalid Order:** The system records the error and sends the order for manual review.
+
+**6. Order Creation**
+Validated order information is converted into a structured order and stored in the target database or order management system.
+
+**7. Stakeholder Notification**
+The system sends confirmation or status notifications to the relevant customer or internal team.
+
+**8. Audit Logging**
+All important processing events are recorded for monitoring, troubleshooting, and future auditing.
 
 ---
 
-## Getting Started
+## Example Order Information
 
-### 1. Clone the repository
+The system can extract information such as:
 
-```bash
-git clone https://github.com/WELLMIND-DataSolutions/Email-Based-Order-Intake-System.git
-cd Email-Based-Order-Intake-System
-```
-
-### 2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Configure email access
-
-```
-Add your email credentials / API keys to a .env file in the project root
-```
-
-### 4. Run the pipeline
-
-```bash
-python main.py
-```
+| Field            | Example                                             |
+| ---------------- | --------------------------------------------------- |
+| Customer Name    | ABC Traders                                         |
+| Customer Email   | [customer@example.com](mailto:customer@example.com) |
+| Product          | Laptop                                              |
+| Quantity         | 10                                                  |
+| Unit Price       | 85000                                               |
+| Delivery Address | Lahore                                              |
+| Order Date       | 2026-08-29                                          |
+| Payment Terms    | Net 30                                              |
 
 ---
 
-## Project Structure
+## Use Cases
 
-```
-Email-Based-Order-Intake-System/
-├── data/
-│   ├── raw/                # Sample/raw email exports for testing
-│   └── processed/          # Extracted structured order data
-├── src/
-│   ├── email_fetcher.py    # Connects to inbox, pulls new emails
-│   ├── parser.py           # Extracts order fields from email text
-│   ├── validator.py        # Validates and scores extracted data
-│   └── notifier.py         # Sends acknowledgement/error emails
-├── models/                 # NLP/ML models used for extraction
-├── reports/                # Processing summaries and logs
-├── main.py
-├── requirements.txt
-└── README.md
-```
+* Businesses receiving customer orders through email
+* Wholesale and distribution companies
+* Retail businesses with email based ordering
+* Suppliers receiving purchase requests
+* Organizations processing bulk product orders
+* Companies transitioning from manual order entry to automation
 
 ---
 
-## Methodology
+## Suggested Technology Stack
 
-### Email parsing
-
-Incoming emails are parsed for structured fields (order ID, product name, quantity, customer name, delivery address) using a combination of pattern matching for consistent formats and NLP-based extraction for free-text orders.
-
-### Validation
-
-Extracted orders are checked for completeness and consistency. Orders missing required fields or with low extraction confidence are flagged instead of silently accepted.
-
-### Output
-
-Validated orders are exported to a structured format (CSV / database) and made available for the next step in the order-processing workflow.
+* **Programming Language:** Python
+* **Email Integration:** IMAP or Microsoft Graph API
+* **Document Processing:** PDF and document extraction libraries
+* **Data Processing:** Pandas
+* **AI Extraction:** LLM or Document AI model
+* **Database:** SQLite or PostgreSQL
+* **Backend:** FastAPI
+* **Automation:** Scheduled email polling or event based processing
 
 ---
 
-## Tech Stack
+## Project Goal
 
-| Tool | Purpose |
-|---|---|
-| Python 3.10+ | Core language |
-| IMAP / Gmail API / Outlook API | Email access |
-| Pandas | Data wrangling |
-| spaCy / regex | Text extraction & NLP |
-| SQLite / CSV | Structured order storage |
+The primary goal of the **Email Based Order Intake System** is to transform incoming unstructured customer emails into validated, structured, and actionable orders automatically.
+
+> **Email Received → Data Extracted → Data Validated → Order Created → Notification Sent**
 
 ---
 
-## Roadmap
-
-- [ ] Set up email inbox connection
-- [ ] Build baseline email parser (rule-based)
-- [ ] Add NLP-based extraction for free-text orders
-- [ ] Build validation & confidence scoring
-- [ ] Add auto-reply / error notification
-- [ ] Export pipeline to CSV / database
-- [ ] Test with real/sample email datasets
-- [ ] Write documentation and usage guide
-
----
-
-## Getting Help
-
-- **Issues:** Open a [GitHub Issue](https://github.com/WELLMIND-DataSolutions/Email-Based-Order-Intake-System/issues) to report bugs or ask questions
-
----
-
-## Contributing
-
-Contributions are welcome. To contribute:
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature-name`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/your-feature-name`
-5. Open a pull request
-
-Please open an issue first for major changes so we can discuss the approach.
-
----
-
-## Author & Maintainer
-
-**WELLMIND Data Solutions**
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-<p align="center">Automating order intake, one email at a time.</p>
+<p align="center">
+  Automating email orders into structured business processes.
+</p>
