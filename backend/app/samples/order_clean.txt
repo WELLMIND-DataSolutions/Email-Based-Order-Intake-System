@@ -1,0 +1,22 @@
+Subject: New Purchase Order #4471
+
+Hi team,
+
+I'd like to place an order for the following items:
+
+- 10 x Wireless Mouse (Model WM-200) @ $15.00 each
+- 5 x Mechanical Keyboard (Model MK-Pro) @ $45.00 each
+- 2 x USB-C Docking Station @ $89.99 each
+
+Total should come to $1,004.98.
+
+Please ship to:
+Sarah Connor
+221B Industrial Way
+Austin, TX 78701
+
+Let me know if you need anything else to process this.
+
+Thanks,
+Sarah Connor
+sarah.connor@cyberdyne-retail.com

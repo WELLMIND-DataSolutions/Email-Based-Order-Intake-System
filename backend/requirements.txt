@@ -1,0 +1,36 @@
+# Install torch first with:
+# pip install torch --index-url https://download.pytorch.org/whl/cpu
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.13.4
+python-dotenv==1.2.2
+beautifulsoup4==4.15.0
+transformers==4.47.1
+hf_xet==1.5.1  # reliable chunked transfer client for HF's Xet storage CDN
+sentencepiece==0.2.0
+accelerate==1.2.1
+pdfplumber==0.11.10
+pytesseract==0.3.13  # also requires the Tesseract-OCR system binary, not pip-installable
+Pillow==12.3.0
+protobuf==7.35.1  # required by Donut's sentencepiece-based tokenizer
+sqlalchemy==2.0.51
+alembic==1.18.5
+outlines==1.3.1  # constrained decoding - structurally guarantees schema-valid JSON
+json_repair==0.61.4  # backup repair path if outlines errors out
+spacy==3.8.7  # hybrid table-field NER, Layer 1 (blank multi-lang rule/phrase matcher, no model download)
+stanza==1.10.1  # hybrid table-field NER, Layer 2 fallback (lazy-loaded; downloads its English model on first use)
+
+# Phase 6 - Gmail ingestion. Not yet pinned (not installed until you run pip
+# install) - after installing, run `pip freeze` and pin these to match the
+# exact-version convention above.
+google-api-python-client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+apscheduler==3.11.3  # already present in venv from an earlier ad-hoc install; now actually wired in (app/scheduler.py)
+
+# Phase 7 - production hardening (auth, PII encryption, OMS push)
+pyjwt>=2.12.0  # not exact-pinned: venv already has supabase-auth requiring pyjwt[crypto]>=2.12.0
+cryptography==44.0.0  # Fernet field-level encryption for customer PII
+httpx==0.28.1  # async-capable OMS push client (blueprint Point 10)
+psycopg[binary]==3.2.3  # Postgres driver for production (Railway) - DATABASE_URL already env-driven, sqlite is dev-only
