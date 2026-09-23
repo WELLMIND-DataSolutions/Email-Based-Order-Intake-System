@@ -42,11 +42,11 @@ This system is built for the space in between: **it reads and structures every o
 
 **Review Queue** — every incoming order lands here with its details already pulled out. Each field shows how confident the system is, so it's obvious at a glance what's safe to approve and what deserves a second look, before a single click confirms the order.
 
-![Review Queue](assets/images/dashboard.png)
+![Review Queue](frontend/assets/images/dashboard.png)
 
 **Overview** — a simple, at-a-glance summary of how many orders came in, how many were approved automatically, how many needed a human check, and how well the system is reading incoming emails overall.
 
-![Overview](assets/images/stats.png)
+![Overview](frontend/assets/images/stats.png)
 
 ---
 
