@@ -6,7 +6,7 @@ A smart automation tool that turns customer order emails into ready-to-approve o
 
 ## How it Works
 
-![How the automation works](assets/images/flow-diagram.svg)
+![How the automation works](frontend/assets/images/flow-diagram.svg)
 
 **The key idea:** the process only ever pauses for the one thing a machine genuinely can't be fully sure about — a detail it isn't confident it read correctly. Everything else happens automatically.
 
